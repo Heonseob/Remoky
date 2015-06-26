@@ -1,0 +1,560 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B290BDDC1B3D4ED300436F30 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BDDB1B3D4ED300436F30 /* main.m */; };
+		B290BDDF1B3D4ED300436F30 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BDDE1B3D4ED300436F30 /* AppDelegate.m */; };
+		B290BDE21B3D4ED300436F30 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BDE11B3D4ED300436F30 /* ViewController.m */; };
+		B290BDE51B3D4ED300436F30 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B290BDE31B3D4ED300436F30 /* Main.storyboard */; };
+		B290BDE71B3D4ED300436F30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B290BDE61B3D4ED300436F30 /* Images.xcassets */; };
+		B290BDEA1B3D4ED300436F30 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B290BDE81B3D4ED300436F30 /* LaunchScreen.xib */; };
+		B290BDF61B3D4ED300436F30 /* RemoteKeyboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BDF51B3D4ED300436F30 /* RemoteKeyboardTests.m */; };
+		B290BE091B3D4FF900436F30 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BE081B3D4FF900436F30 /* KeyboardViewController.m */; };
+		B290BE0C1B3D4FF900436F30 /* Remoky.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B290BE031B3D4FF900436F30 /* Remoky.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B290BDF01B3D4ED300436F30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290BDCE1B3D4ED300436F30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B290BDD51B3D4ED300436F30;
+			remoteInfo = RemoteKeyboard;
+		};
+		B290BE0A1B3D4FF900436F30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B290BDCE1B3D4ED300436F30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B290BE021B3D4FF900436F30;
+			remoteInfo = Remoky;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B290BE101B3D4FF900436F30 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				B290BE0C1B3D4FF900436F30 /* Remoky.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B290BDD61B3D4ED300436F30 /* RemoteKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B290BDDA1B3D4ED300436F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B290BDDB1B3D4ED300436F30 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B290BDDD1B3D4ED300436F30 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B290BDDE1B3D4ED300436F30 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B290BDE01B3D4ED300436F30 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B290BDE11B3D4ED300436F30 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B290BDE41B3D4ED300436F30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B290BDE61B3D4ED300436F30 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B290BDE91B3D4ED300436F30 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B290BDEF1B3D4ED300436F30 /* RemoteKeyboardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteKeyboardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B290BDF41B3D4ED300436F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B290BDF51B3D4ED300436F30 /* RemoteKeyboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteKeyboardTests.m; sourceTree = "<group>"; };
+		B290BE031B3D4FF900436F30 /* Remoky.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Remoky.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B290BE061B3D4FF900436F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B290BE071B3D4FF900436F30 /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
+		B290BE081B3D4FF900436F30 /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B290BDD31B3D4ED300436F30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B290BDEC1B3D4ED300436F30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B290BE001B3D4FF900436F30 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B290BDCD1B3D4ED300436F30 = {
+			isa = PBXGroup;
+			children = (
+				B290BDD81B3D4ED300436F30 /* RemoteKeyboard */,
+				B290BDF21B3D4ED300436F30 /* RemoteKeyboardTests */,
+				B290BE041B3D4FF900436F30 /* Remoky */,
+				B290BDD71B3D4ED300436F30 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B290BDD71B3D4ED300436F30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B290BDD61B3D4ED300436F30 /* RemoteKeyboard.app */,
+				B290BDEF1B3D4ED300436F30 /* RemoteKeyboardTests.xctest */,
+				B290BE031B3D4FF900436F30 /* Remoky.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B290BDD81B3D4ED300436F30 /* RemoteKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				B290BDDD1B3D4ED300436F30 /* AppDelegate.h */,
+				B290BDDE1B3D4ED300436F30 /* AppDelegate.m */,
+				B290BDE01B3D4ED300436F30 /* ViewController.h */,
+				B290BDE11B3D4ED300436F30 /* ViewController.m */,
+				B290BDE31B3D4ED300436F30 /* Main.storyboard */,
+				B290BDE61B3D4ED300436F30 /* Images.xcassets */,
+				B290BDE81B3D4ED300436F30 /* LaunchScreen.xib */,
+				B290BDD91B3D4ED300436F30 /* Supporting Files */,
+			);
+			path = RemoteKeyboard;
+			sourceTree = "<group>";
+		};
+		B290BDD91B3D4ED300436F30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B290BDDA1B3D4ED300436F30 /* Info.plist */,
+				B290BDDB1B3D4ED300436F30 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B290BDF21B3D4ED300436F30 /* RemoteKeyboardTests */ = {
+			isa = PBXGroup;
+			children = (
+				B290BDF51B3D4ED300436F30 /* RemoteKeyboardTests.m */,
+				B290BDF31B3D4ED300436F30 /* Supporting Files */,
+			);
+			path = RemoteKeyboardTests;
+			sourceTree = "<group>";
+		};
+		B290BDF31B3D4ED300436F30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B290BDF41B3D4ED300436F30 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B290BE041B3D4FF900436F30 /* Remoky */ = {
+			isa = PBXGroup;
+			children = (
+				B290BE071B3D4FF900436F30 /* KeyboardViewController.h */,
+				B290BE081B3D4FF900436F30 /* KeyboardViewController.m */,
+				B290BE051B3D4FF900436F30 /* Supporting Files */,
+			);
+			path = Remoky;
+			sourceTree = "<group>";
+		};
+		B290BE051B3D4FF900436F30 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B290BE061B3D4FF900436F30 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B290BDD51B3D4ED300436F30 /* RemoteKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B290BDF91B3D4ED300436F30 /* Build configuration list for PBXNativeTarget "RemoteKeyboard" */;
+			buildPhases = (
+				B290BDD21B3D4ED300436F30 /* Sources */,
+				B290BDD31B3D4ED300436F30 /* Frameworks */,
+				B290BDD41B3D4ED300436F30 /* Resources */,
+				B290BE101B3D4FF900436F30 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B290BE0B1B3D4FF900436F30 /* PBXTargetDependency */,
+			);
+			name = RemoteKeyboard;
+			productName = RemoteKeyboard;
+			productReference = B290BDD61B3D4ED300436F30 /* RemoteKeyboard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B290BDEE1B3D4ED300436F30 /* RemoteKeyboardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B290BDFC1B3D4ED300436F30 /* Build configuration list for PBXNativeTarget "RemoteKeyboardTests" */;
+			buildPhases = (
+				B290BDEB1B3D4ED300436F30 /* Sources */,
+				B290BDEC1B3D4ED300436F30 /* Frameworks */,
+				B290BDED1B3D4ED300436F30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B290BDF11B3D4ED300436F30 /* PBXTargetDependency */,
+			);
+			name = RemoteKeyboardTests;
+			productName = RemoteKeyboardTests;
+			productReference = B290BDEF1B3D4ED300436F30 /* RemoteKeyboardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B290BE021B3D4FF900436F30 /* Remoky */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B290BE0D1B3D4FF900436F30 /* Build configuration list for PBXNativeTarget "Remoky" */;
+			buildPhases = (
+				B290BDFF1B3D4FF900436F30 /* Sources */,
+				B290BE001B3D4FF900436F30 /* Frameworks */,
+				B290BE011B3D4FF900436F30 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Remoky;
+			productName = Remoky;
+			productReference = B290BE031B3D4FF900436F30 /* Remoky.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B290BDCE1B3D4ED300436F30 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Daum;
+				TargetAttributes = {
+					B290BDD51B3D4ED300436F30 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					B290BDEE1B3D4ED300436F30 = {
+						CreatedOnToolsVersion = 6.3.2;
+						TestTargetID = B290BDD51B3D4ED300436F30;
+					};
+					B290BE021B3D4FF900436F30 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+				};
+			};
+			buildConfigurationList = B290BDD11B3D4ED300436F30 /* Build configuration list for PBXProject "RemoteKeyboard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B290BDCD1B3D4ED300436F30;
+			productRefGroup = B290BDD71B3D4ED300436F30 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B290BDD51B3D4ED300436F30 /* RemoteKeyboard */,
+				B290BDEE1B3D4ED300436F30 /* RemoteKeyboardTests */,
+				B290BE021B3D4FF900436F30 /* Remoky */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B290BDD41B3D4ED300436F30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B290BDE51B3D4ED300436F30 /* Main.storyboard in Resources */,
+				B290BDEA1B3D4ED300436F30 /* LaunchScreen.xib in Resources */,
+				B290BDE71B3D4ED300436F30 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B290BDED1B3D4ED300436F30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B290BE011B3D4FF900436F30 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B290BDD21B3D4ED300436F30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B290BDE21B3D4ED300436F30 /* ViewController.m in Sources */,
+				B290BDDF1B3D4ED300436F30 /* AppDelegate.m in Sources */,
+				B290BDDC1B3D4ED300436F30 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B290BDEB1B3D4ED300436F30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B290BDF61B3D4ED300436F30 /* RemoteKeyboardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B290BDFF1B3D4FF900436F30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B290BE091B3D4FF900436F30 /* KeyboardViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B290BDF11B3D4ED300436F30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B290BDD51B3D4ED300436F30 /* RemoteKeyboard */;
+			targetProxy = B290BDF01B3D4ED300436F30 /* PBXContainerItemProxy */;
+		};
+		B290BE0B1B3D4FF900436F30 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B290BE021B3D4FF900436F30 /* Remoky */;
+			targetProxy = B290BE0A1B3D4FF900436F30 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B290BDE31B3D4ED300436F30 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B290BDE41B3D4ED300436F30 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B290BDE81B3D4ED300436F30 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B290BDE91B3D4ED300436F30 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B290BDF71B3D4ED300436F30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B290BDF81B3D4ED300436F30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B290BDFA1B3D4ED300436F30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RemoteKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B290BDFB1B3D4ED300436F30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RemoteKeyboard/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B290BDFD1B3D4ED300436F30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RemoteKeyboardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RemoteKeyboard.app/RemoteKeyboard";
+			};
+			name = Debug;
+		};
+		B290BDFE1B3D4ED300436F30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RemoteKeyboardTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RemoteKeyboard.app/RemoteKeyboard";
+			};
+			name = Release;
+		};
+		B290BE0E1B3D4FF900436F30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Remoky/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		B290BE0F1B3D4FF900436F30 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Remoky/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B290BDD11B3D4ED300436F30 /* Build configuration list for PBXProject "RemoteKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B290BDF71B3D4ED300436F30 /* Debug */,
+				B290BDF81B3D4ED300436F30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B290BDF91B3D4ED300436F30 /* Build configuration list for PBXNativeTarget "RemoteKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B290BDFA1B3D4ED300436F30 /* Debug */,
+				B290BDFB1B3D4ED300436F30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B290BDFC1B3D4ED300436F30 /* Build configuration list for PBXNativeTarget "RemoteKeyboardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B290BDFD1B3D4ED300436F30 /* Debug */,
+				B290BDFE1B3D4ED300436F30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B290BE0D1B3D4FF900436F30 /* Build configuration list for PBXNativeTarget "Remoky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B290BE0E1B3D4FF900436F30 /* Debug */,
+				B290BE0F1B3D4FF900436F30 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B290BDCE1B3D4ED300436F30 /* Project object */;
+}
