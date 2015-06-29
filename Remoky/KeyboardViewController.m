@@ -13,6 +13,10 @@
 @interface KeyboardViewController ()
 @property (nonatomic, strong) UIButton *nextKeyboardButton;
 @property (nonatomic, strong) UIButton *yoButton;
+
+@property (strong) GCDAsyncSocket *socket;
+@property (strong) dispatch_queue_t queue;
+
 @end
 
 @implementation KeyboardViewController
@@ -51,6 +55,20 @@
     
     [self initYoButtonView];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"viewWillAppear");
+
+    self.queue = dispatch_queue_create("com.daumcorp.mvoip.socket", DISPATCH_QUEUE_SERIAL);
+    self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.queue];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"viewWillDisappear");
 }
 
 - (void)initYoButtonView {
