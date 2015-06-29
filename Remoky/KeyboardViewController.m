@@ -41,25 +41,93 @@
     [self.view addConstraints:@[nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint]];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated
 }
 
-- (void)textWillChange:(id<UITextInput>)textInput {
+- (void)textWillChange:(id<UITextInput>)textInput
+{
     // The app is about to change the document's contents. Perform any preparation here.
 }
 
-- (void)textDidChange:(id<UITextInput>)textInput {
+- (void)textDidChange:(id<UITextInput>)textInput
+{
     // The app has just changed the document's contents, the document context has been updated.
     
     UIColor *textColor = nil;
-    if (self.textDocumentProxy.keyboardAppearance == UIKeyboardAppearanceDark) {
+    if (self.textDocumentProxy.keyboardAppearance == UIKeyboardAppearanceDark)
         textColor = [UIColor whiteColor];
-    } else {
+    else
         textColor = [UIColor blackColor];
-    }
+
     [self.nextKeyboardButton setTitleColor:textColor forState:UIControlStateNormal];
 }
+
+//- (dispatch_queue_t)newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(GCDAsyncSocket *)sock
+//{
+//    
+//}
+
+- (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket;
+{
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port;
+{
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag;
+{
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
+{
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag;
+{
+    
+}
+
+- (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
+{
+    
+}
+
+//- (NSTimeInterval)socket:(GCDAsyncSocket *)sock shouldTimeoutReadWithTag:(long)tag
+//                 elapsed:(NSTimeInterval)elapsed
+//               bytesDone:(NSUInteger)length;
+//{
+//    
+//}
+//
+//- (NSTimeInterval)socket:(GCDAsyncSocket *)sock shouldTimeoutWriteWithTag:(long)tag
+//                 elapsed:(NSTimeInterval)elapsed
+//               bytesDone:(NSUInteger)length;
+//{
+//    
+//}
+
+- (void)socketDidCloseReadStream:(GCDAsyncSocket *)sock;
+{
+    
+}
+
+- (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
+{
+    
+}
+
+- (void)socketDidSecure:(GCDAsyncSocket *)sock;
+{
+    
+}
+
 
 @end

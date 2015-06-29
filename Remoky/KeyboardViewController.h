@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCDAsyncSocket.h"
 
-@interface KeyboardViewController : UIInputViewController
+@interface KeyboardViewController : UIInputViewController <GCDAsyncSocketDelegate>
 
 @end
