@@ -1,28 +1,37 @@
 //
 //  KeyboardViewController.m
-//  Remoky
+//  Yo Keyboard
 //
-//  Created by csaint on 2015. 6. 26..
-//  Copyright (c) 2015년 Daum. All rights reserved.
+//  Created by Mathew Hartley on 19/06/14.
+//  Copyright (c) 2014 Mathew Hartley. All rights reserved.
 //
 
 #import "KeyboardViewController.h"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 
 @interface KeyboardViewController ()
 @property (nonatomic, strong) UIButton *nextKeyboardButton;
+@property (nonatomic, strong) UIButton *yoButton;
 @end
 
 @implementation KeyboardViewController
 
-- (void)updateViewConstraints
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Perform custom initialization work here
+    }
+    return self;
+}
+
+- (void)updateViewConstraints {
     [super updateViewConstraints];
     
     // Add custom view sizing constraints here
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     // Perform custom UI setup here
@@ -39,6 +48,70 @@
     NSLayoutConstraint *nextKeyboardButtonLeftSideConstraint = [NSLayoutConstraint constraintWithItem:self.nextKeyboardButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
     NSLayoutConstraint *nextKeyboardButtonBottomConstraint = [NSLayoutConstraint constraintWithItem:self.nextKeyboardButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
     [self.view addConstraints:@[nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint]];
+    
+    [self initYoButtonView];
+    
+}
+
+- (void)initYoButtonView {
+    self.yoButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
+    
+    [self.yoButton setTitle:NSLocalizedString(@"YO", "Text for YO key") forState:UIControlStateNormal];
+    
+    [self.yoButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:96.0]];
+    
+    [self.yoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    [self.yoButton addTarget:self action:@selector(enterYoText) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.yoButton.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self.inputView addSubview:self.yoButton];
+    
+    // initialize
+    NSLayoutConstraint *width =[NSLayoutConstraint
+                                constraintWithItem:self.yoButton
+                                attribute:NSLayoutAttributeWidth
+                                relatedBy:0
+                                toItem:self.inputView
+                                attribute:NSLayoutAttributeWidth
+                                multiplier:1.0
+                                constant:0];
+    NSLayoutConstraint *height =[NSLayoutConstraint
+                                 constraintWithItem:self.yoButton
+                                 attribute:NSLayoutAttributeHeight
+                                 relatedBy:0
+                                 toItem:self.inputView
+                                 attribute:NSLayoutAttributeHeight
+                                 multiplier:0.9
+                                 constant:0];
+    NSLayoutConstraint *top = [NSLayoutConstraint
+                               constraintWithItem:self.yoButton
+                               attribute:NSLayoutAttributeTop
+                               relatedBy:NSLayoutRelationEqual
+                               toItem:self.inputView
+                               attribute:NSLayoutAttributeTop
+                               multiplier:1.0f
+                               constant:0.f];
+    NSLayoutConstraint *leading = [NSLayoutConstraint
+                                   constraintWithItem:self.yoButton
+                                   attribute:NSLayoutAttributeLeading
+                                   relatedBy:NSLayoutRelationEqual
+                                   toItem:self.inputView
+                                   attribute:NSLayoutAttributeLeading
+                                   multiplier:1.0f
+                                   constant:0.f];
+    [self.inputView addConstraint:width];
+    [self.inputView addConstraint:height];
+    [self.inputView addConstraint:top];
+    [self.inputView addConstraint:leading];
+}
+
+- (void)enterYoText
+{
+    [self.textDocumentProxy insertText:@"Yo 12 가나다라"];
+    NSLog(@"Yo");
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,15 +138,7 @@
     [self.nextKeyboardButton setTitleColor:textColor forState:UIControlStateNormal];
 }
 
-//- (dispatch_queue_t)newSocketQueueForConnectionFromAddress:(NSData *)address onSocket:(GCDAsyncSocket *)sock
-//{
-//    
-//}
-
-- (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket;
-{
-    
-}
+#pragma - GCDAsyncSocketDelegate
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port;
 {
@@ -85,49 +150,11 @@
     
 }
 
-- (void)socket:(GCDAsyncSocket *)sock didReadPartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
-{
-    
-}
-
-- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag;
-{
-    
-}
-
-- (void)socket:(GCDAsyncSocket *)sock didWritePartialDataOfLength:(NSUInteger)partialLength tag:(long)tag;
-{
-    
-}
-
-//- (NSTimeInterval)socket:(GCDAsyncSocket *)sock shouldTimeoutReadWithTag:(long)tag
-//                 elapsed:(NSTimeInterval)elapsed
-//               bytesDone:(NSUInteger)length;
-//{
-//    
-//}
-//
-//- (NSTimeInterval)socket:(GCDAsyncSocket *)sock shouldTimeoutWriteWithTag:(long)tag
-//                 elapsed:(NSTimeInterval)elapsed
-//               bytesDone:(NSUInteger)length;
-//{
-//    
-//}
-
-- (void)socketDidCloseReadStream:(GCDAsyncSocket *)sock;
-{
-    
-}
-
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
 {
     
 }
 
-- (void)socketDidSecure:(GCDAsyncSocket *)sock;
-{
-    
-}
 
 
 @end
