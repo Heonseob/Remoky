@@ -64,6 +64,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"viewWillAppear");
+    [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
 
     self.queue = dispatch_queue_create("com.daumcorp.mvoip.socket", DISPATCH_QUEUE_SERIAL);
     self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.queue];
@@ -94,9 +95,9 @@
     self.yoButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
     
-    [self.yoButton setTitle:NSLocalizedString(@"YO", "Text for YO key") forState:UIControlStateNormal];
+    [self.yoButton setTitle:@"Desktop Keyboard" forState:UIControlStateNormal];
     
-    [self.yoButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:96.0]];
+    [self.yoButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:30.0]];
     
     [self.yoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
@@ -147,7 +148,7 @@
 
 - (void)enterYoText
 {
-    [self.textDocumentProxy insertText:@"Yo 12 가나다라"];
+    //[self.textDocumentProxy insertText:@"Yo 12 가나다라"];
     NSLog(@"Yo");
 }
 
@@ -180,6 +181,10 @@
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port;
 {
     [self.socket readDataWithTimeout:-1 tag:0];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.yoButton setBackgroundColor:UIColorFromRGB(0xB8D4E5)];
+    });
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag;
@@ -195,6 +200,10 @@
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
+    });
+
     self.socket = nil;
 }
 
