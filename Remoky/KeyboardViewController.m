@@ -7,6 +7,7 @@
 //
 
 #import "KeyboardViewController.h"
+#import "KeyboardView.h"
 
 #define DEFINE_WEAK_SELF __weak typeof(self) wself = self;
 #define DEFINE_STRONG_SELF __strong typeof(wself) sself = wself;
@@ -15,8 +16,10 @@
 
 
 @interface KeyboardViewController ()
-@property (nonatomic, strong) UIButton *nextKeyboardButton;
-@property (nonatomic, strong) UIButton *yoButton;
+//@property (nonatomic, strong) UIButton *nextKeyboardButton;
+//@property (nonatomic, strong) UIButton *yoButton;
+
+@property (strong) KeyboardView* keyboard;
 
 @property (strong) GCDAsyncSocket *socket;
 @property (strong) dispatch_queue_t queue;
@@ -41,30 +44,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.keyboard = [[[NSBundle mainBundle] loadNibNamed:@"KeyboardView" owner:nil options:nil] objectAtIndex:0];
+    self.inputView = self.keyboard;
     
-    // Perform custom UI setup here
-    self.nextKeyboardButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.keyboard.nextKeyboard addTarget:self action:@selector(advanceToNextInputMode) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.nextKeyboardButton setTitle:NSLocalizedString(@"Next Keyboard", @"Title for 'Next Keyboard' button") forState:UIControlStateNormal];
-    [self.nextKeyboardButton sizeToFit];
-    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self.nextKeyboardButton addTarget:self action:@selector(advanceToNextInputMode) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.view addSubview:self.nextKeyboardButton];
-    
-    NSLayoutConstraint *nextKeyboardButtonLeftSideConstraint = [NSLayoutConstraint constraintWithItem:self.nextKeyboardButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *nextKeyboardButtonBottomConstraint = [NSLayoutConstraint constraintWithItem:self.nextKeyboardButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
-    [self.view addConstraints:@[nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint]];
-    
-    [self initYoButtonView];
+//    // Perform custom UI setup here
+//    self.nextKeyboardButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    
+//    [self.nextKeyboardButton setTitle:NSLocalizedString(@"Next Keyboard", @"Title for 'Next Keyboard' button") forState:UIControlStateNormal];
+//    [self.nextKeyboardButton sizeToFit];
+//    self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    
+//    [self.nextKeyboardButton addTarget:self action:@selector(advanceToNextInputMode) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    [self.view addSubview:self.nextKeyboardButton];
+//    
+//    NSLayoutConstraint *nextKeyboardButtonLeftSideConstraint = [NSLayoutConstraint constraintWithItem:self.nextKeyboardButton attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0];
+//    NSLayoutConstraint *nextKeyboardButtonBottomConstraint = [NSLayoutConstraint constraintWithItem:self.nextKeyboardButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0];
+//    [self.view addConstraints:@[nextKeyboardButtonLeftSideConstraint, nextKeyboardButtonBottomConstraint]];
+//    
+//    [self initYoButtonView];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"viewWillAppear");
-    [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
+    [self.keyboard.nextKeyboard setBackgroundColor:UIColorFromRGB(0xdc5500)];
 
     self.queue = dispatch_queue_create("com.daumcorp.mvoip.socket", DISPATCH_QUEUE_SERIAL);
     self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.queue];
@@ -91,66 +99,67 @@
     }});
 }
 
-- (void)initYoButtonView {
-    self.yoButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
-    
-    [self.yoButton setTitle:@"Desktop Keyboard" forState:UIControlStateNormal];
-    
-    [self.yoButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:30.0]];
-    
-    [self.yoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    [self.yoButton addTarget:self action:@selector(enterYoText) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.yoButton.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self.inputView addSubview:self.yoButton];
-    
-    // initialize
-    NSLayoutConstraint *width =[NSLayoutConstraint
-                                constraintWithItem:self.yoButton
-                                attribute:NSLayoutAttributeWidth
-                                relatedBy:0
-                                toItem:self.inputView
-                                attribute:NSLayoutAttributeWidth
-                                multiplier:1.0
-                                constant:0];
-    NSLayoutConstraint *height =[NSLayoutConstraint
-                                 constraintWithItem:self.yoButton
-                                 attribute:NSLayoutAttributeHeight
-                                 relatedBy:0
-                                 toItem:self.inputView
-                                 attribute:NSLayoutAttributeHeight
-                                 multiplier:0.9
-                                 constant:0];
-    NSLayoutConstraint *top = [NSLayoutConstraint
-                               constraintWithItem:self.yoButton
-                               attribute:NSLayoutAttributeTop
-                               relatedBy:NSLayoutRelationEqual
-                               toItem:self.inputView
-                               attribute:NSLayoutAttributeTop
-                               multiplier:1.0f
-                               constant:0.f];
-    NSLayoutConstraint *leading = [NSLayoutConstraint
-                                   constraintWithItem:self.yoButton
-                                   attribute:NSLayoutAttributeLeading
-                                   relatedBy:NSLayoutRelationEqual
-                                   toItem:self.inputView
-                                   attribute:NSLayoutAttributeLeading
-                                   multiplier:1.0f
-                                   constant:0.f];
-    [self.inputView addConstraint:width];
-    [self.inputView addConstraint:height];
-    [self.inputView addConstraint:top];
-    [self.inputView addConstraint:leading];
-}
-
-- (void)enterYoText
-{
-    //[self.textDocumentProxy insertText:@"Yo 12 가나다라"];
-    NSLog(@"Yo");
-}
+//- (void)initYoButtonView
+//{
+//    self.yoButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
+//    
+//    [self.yoButton setTitle:@"Desktop Keyboard" forState:UIControlStateNormal];
+//    
+//    [self.yoButton.titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:30.0]];
+//    
+//    [self.yoButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    
+//    [self.yoButton addTarget:self action:@selector(enterYoText) forControlEvents:UIControlEventTouchUpInside];
+//    
+//    self.yoButton.translatesAutoresizingMaskIntoConstraints = NO;
+//    
+//    [self.inputView addSubview:self.yoButton];
+//    
+//    // initialize
+//    NSLayoutConstraint *width =[NSLayoutConstraint
+//                                constraintWithItem:self.yoButton
+//                                attribute:NSLayoutAttributeWidth
+//                                relatedBy:0
+//                                toItem:self.inputView
+//                                attribute:NSLayoutAttributeWidth
+//                                multiplier:1.0
+//                                constant:0];
+//    NSLayoutConstraint *height =[NSLayoutConstraint
+//                                 constraintWithItem:self.yoButton
+//                                 attribute:NSLayoutAttributeHeight
+//                                 relatedBy:0
+//                                 toItem:self.inputView
+//                                 attribute:NSLayoutAttributeHeight
+//                                 multiplier:0.9
+//                                 constant:0];
+//    NSLayoutConstraint *top = [NSLayoutConstraint
+//                               constraintWithItem:self.yoButton
+//                               attribute:NSLayoutAttributeTop
+//                               relatedBy:NSLayoutRelationEqual
+//                               toItem:self.inputView
+//                               attribute:NSLayoutAttributeTop
+//                               multiplier:1.0f
+//                               constant:0.f];
+//    NSLayoutConstraint *leading = [NSLayoutConstraint
+//                                   constraintWithItem:self.yoButton
+//                                   attribute:NSLayoutAttributeLeading
+//                                   relatedBy:NSLayoutRelationEqual
+//                                   toItem:self.inputView
+//                                   attribute:NSLayoutAttributeLeading
+//                                   multiplier:1.0f
+//                                   constant:0.f];
+//    [self.inputView addConstraint:width];
+//    [self.inputView addConstraint:height];
+//    [self.inputView addConstraint:top];
+//    [self.inputView addConstraint:leading];
+//}
+//
+//- (void)enterYoText
+//{
+//    //[self.textDocumentProxy insertText:@"Yo 12 가나다라"];
+//    NSLog(@"Yo");
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -173,7 +182,7 @@
     else
         textColor = [UIColor blackColor];
 
-    [self.nextKeyboardButton setTitleColor:textColor forState:UIControlStateNormal];
+//    [self.nextKeyboardButton setTitleColor:textColor forState:UIControlStateNormal];
 }
 
 #pragma - GCDAsyncSocketDelegate
@@ -183,7 +192,7 @@
     [self.socket readDataWithTimeout:-1 tag:0];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.yoButton setBackgroundColor:UIColorFromRGB(0xB8D4E5)];
+        [self.keyboard.nextKeyboard setBackgroundColor:UIColorFromRGB(0xB8D4E5)];
     });
 }
 
@@ -201,7 +210,7 @@
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.yoButton setBackgroundColor:UIColorFromRGB(0xdc5500)];
+        [self.keyboard.nextKeyboard setBackgroundColor:UIColorFromRGB(0xdc5500)];
     });
 
     self.socket = nil;

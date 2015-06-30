@@ -17,6 +17,8 @@
 		B290BE091B3D4FF900436F30 /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BE081B3D4FF900436F30 /* KeyboardViewController.m */; };
 		B290BE0C1B3D4FF900436F30 /* Remoky.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B290BE031B3D4FF900436F30 /* Remoky.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		B290BE131B3E63C300436F30 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BE121B3E63C300436F30 /* GCDAsyncSocket.m */; };
+		B290BE4E1B426D8B00436F30 /* KeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BE4D1B426D8B00436F30 /* KeyboardView.m */; };
+		B290BE501B426DA300436F30 /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B290BE4F1B426DA300436F30 /* KeyboardView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,9 @@
 		B290BE111B3E63C300436F30 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		B290BE121B3E63C300436F30 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		B290BE401B40D47E00436F30 /* RemoteDesktop.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RemoteDesktop.xcodeproj; path = RemoteDesktop/RemoteDesktop.xcodeproj; sourceTree = "<group>"; };
+		B290BE4C1B426D8B00436F30 /* KeyboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardView.h; sourceTree = "<group>"; };
+		B290BE4D1B426D8B00436F30 /* KeyboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardView.m; sourceTree = "<group>"; };
+		B290BE4F1B426DA300436F30 /* KeyboardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +187,9 @@
 				B290BE071B3D4FF900436F30 /* KeyboardViewController.h */,
 				B290BE081B3D4FF900436F30 /* KeyboardViewController.m */,
 				B290BE051B3D4FF900436F30 /* Supporting Files */,
+				B290BE4C1B426D8B00436F30 /* KeyboardView.h */,
+				B290BE4D1B426D8B00436F30 /* KeyboardView.m */,
+				B290BE4F1B426DA300436F30 /* KeyboardView.xib */,
 			);
 			path = Remoky;
 			sourceTree = "<group>";
@@ -346,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B290BE501B426DA300436F30 /* KeyboardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B290BE4E1B426D8B00436F30 /* KeyboardView.m in Sources */,
 				B290BE131B3E63C300436F30 /* GCDAsyncSocket.m in Sources */,
 				B290BE091B3D4FF900436F30 /* KeyboardViewController.m in Sources */,
 			);
