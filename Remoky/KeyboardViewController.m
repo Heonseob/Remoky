@@ -7,6 +7,10 @@
 //
 
 #import "KeyboardViewController.h"
+
+#define DEFINE_WEAK_SELF __weak typeof(self) wself = self;
+#define DEFINE_STRONG_SELF __strong typeof(wself) sself = wself;
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
@@ -64,11 +68,26 @@
     self.queue = dispatch_queue_create("com.daumcorp.mvoip.socket", DISPATCH_QUEUE_SERIAL);
     self.socket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:self.queue];
     
+    DEFINE_WEAK_SELF;
+    dispatch_async(self.queue, ^{ @autoreleasepool {
+        DEFINE_STRONG_SELF;
+        NSError *error = nil;
+        [sself.socket connectToHost:@"172.26.36.82" onPort:3193 withTimeout:-1 error:&error];
+        if (error != nil)
+            return;
+    }});
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     NSLog(@"viewWillDisappear");
+
+    DEFINE_WEAK_SELF;
+    dispatch_async(self.queue, ^{ @autoreleasepool {
+        DEFINE_STRONG_SELF;
+        [sself.socket disconnect];
+    }});
 }
 
 - (void)initYoButtonView {
@@ -160,17 +179,23 @@
 
 - (void)socket:(GCDAsyncSocket *)sock didConnectToHost:(NSString *)host port:(uint16_t)port;
 {
-    
+    [self.socket readDataWithTimeout:-1 tag:0];
 }
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag;
 {
+    NSString* readString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];  //not null-terminated data
+    //NSString* readString = [NSString stringWithUTF8String:[data bytes]];                      //    null-terminated data
     
+    NSLog(@"Received data:%@ (%lu bytes) tag:%ld", readString, data.length, tag);
+    [self.socket readDataWithTimeout:-1 tag:0];
+    
+    [self.textDocumentProxy insertText:readString];
 }
 
 - (void)socketDidDisconnect:(GCDAsyncSocket *)sock withError:(NSError *)err;
 {
-    
+    self.socket = nil;
 }
 
 
