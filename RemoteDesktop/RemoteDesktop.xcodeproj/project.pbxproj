@@ -12,6 +12,7 @@
 		B290BE281B40D47E00436F30 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B290BE271B40D47E00436F30 /* Images.xcassets */; };
 		B290BE2B1B40D47E00436F30 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B290BE291B40D47E00436F30 /* MainMenu.xib */; };
 		B290BE371B40D47E00436F30 /* RemoteDesktopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BE361B40D47E00436F30 /* RemoteDesktopTests.m */; };
+		B290BE4B1B40E49400436F30 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = B290BE4A1B40E49400436F30 /* GCDAsyncSocket.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,8 @@
 		B290BE301B40D47E00436F30 /* RemoteDesktopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemoteDesktopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B290BE351B40D47E00436F30 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B290BE361B40D47E00436F30 /* RemoteDesktopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoteDesktopTests.m; sourceTree = "<group>"; };
+		B290BE491B40E49400436F30 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		B290BE4A1B40E49400436F30 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +79,8 @@
 		B290BE1F1B40D47E00436F30 /* RemoteDesktop */ = {
 			isa = PBXGroup;
 			children = (
+				B290BE491B40E49400436F30 /* GCDAsyncSocket.h */,
+				B290BE4A1B40E49400436F30 /* GCDAsyncSocket.m */,
 				B290BE221B40D47E00436F30 /* AppDelegate.h */,
 				B290BE231B40D47E00436F30 /* AppDelegate.m */,
 				B290BE271B40D47E00436F30 /* Images.xcassets */,
@@ -210,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B290BE4B1B40E49400436F30 /* GCDAsyncSocket.m in Sources */,
 				B290BE261B40D47E00436F30 /* main.m in Sources */,
 				B290BE241B40D47E00436F30 /* AppDelegate.m in Sources */,
 			);
